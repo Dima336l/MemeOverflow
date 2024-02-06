@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>MemeOverflow</title>
+      <link rel="icon" type="image/x-icon" href="Images/favicon.png" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link
+         rel="stylesheet"
+         href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+         crossorigin="anonymous"
+         />
+      <link rel="stylesheet" href="styles.css" />
+   </head>
+   <body>
+      <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
+         <a class="navbar-brand logoText" href="#">MemeOverflow</a>
+         <img src="Images/smile.png" id="smile" />
+         <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarText"
+            aria-controls="navbarText"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+            >
+         <span class="navbar-toggler-icon"></span>
+         </button>
+         <div
+            class="navbar-collapse collapse flex-grow-1 justify-content-center"
+            id="navbarText"
+            >
+            <ul class="nav justify-content-center">
+               <li class="nav-item">
+                  <img src="Images/home.png" id="home" />
+                  <a class="navbar-brand" href="#">Home</a>
+               </li>
+               <li class="nav-item">
+                  <img src="Images/fire.png" id="fire" />
+                  <a class="navbar-brand" href="#">Hot</a>
+               </li>
+               <li class="nav-item">
+                  <div class="icons2Div">
+                     <img src="Images/heart.png" class="navIcons2" />
+                     <a class="navbar-brand" href="#">Trending</a>
+                  </div>
+               </li>
+               <li class="nav-item">
+                  <div class="icons2Div">
+                     <img src="Images/Dice.png" class="navIcons2" />
+                     <a class="navbar-brand" href="#">Random</a>
+                  </div>
+               </li>
+            </ul>
+         </div>
+         <ul class="nav navbar-nav navbar-right">
+            <li class="nav-item">
+               <img src="Images/avatar.png" class="navIcons3" onclick="showLoginForm()" style="width:auto;" id="avatarIcon" />
+            <li>
+               <img src="Images/moon.png" class="navIcons3" id="moon" />
+            </li>
+         </ul>
+      </nav>
+      <div class="vertical-menu">
+      <div class="box">
+         <div class="img-container">
+            <img src="Images/programming.png" class="menuIcons" id="programmingIcon" />
+         </div>
+         <a href="#home"> Programming </a>
+      </div>
+      <div class="box">
+         <div class="img-container">
+            <img src="Images/front-end.png" class="menuIcons" />
+         </div>
+         <a href="#about">Front end</a>
+      </div>
+      <div class="box">
+         <div class="img-container">
+            <img src="Images/back-end.png" class="menuIcons" />
+         </div>
+         <a href="#about">Back end</a>
+      </div>
+      <div class="box">
+         <div class="img-container">
+            <img src="Images/debugging.png" class="menuIcons" />
+         </div>
+         <a href="#about">Debugging</a>
+      </div>
+      <div class="box">
+         <div class="img-container">
+            <img src="Images/linux.png" class="menuIcons" id="linuxIcon"/>
+         </div>
+         <a href="#about">Linux</a>
+      </div>
+      <div class="box">
+         <div class="img-container">
+            <img src="Images/python.png" class="menuIcons" />
+         </div>
+         <a href="#about">Python</a>
+      </div>
+      <div class="box">
+         <div class="img-container">
+            <img src="Images/testing.png" class="menuIcons" />
+         </div>
+         <a href="#about">Testing</a>
+      </div>
+      <div class="box">
+         <div class="img-container">
+            <img src="Images/java.png" class="menuIcons" id="javaIcon" />
+         </div>
+         <a href="#about">Java</a>
+      </div>
+      <div class="box">
+         <div class="img-container">
+            <img src="Images/JavaScript.png" class="menuIcons" />
+         </div>
+         <a href="#about">JavaScript</a>
+      </div>
+      <div class="box">
+         <div class="img-container">
+            <img src="Images/C++.png" class="menuIcons" />
+         </div>
+         <a href="#about">C++</a>
+      </div>
+      <div class="input-group">
+         <input type="text" class="form-control" placeholder="Search for posts">
+         <div class="input-group-append">
+            <button class="btn btn-secondary" type="button">
+            <i class="fa fa-search"></i>
+            </button>
+         </div>
+      </div>
+      <div class="box">
+         <div class="img-container">
+            <img src="Images/house.png" class="menuIcons" />
+         </div>
+         <a href="#about">Home</a>
+      </div>
+      <div class="box">
+         <div class="img-container">
+            <img src="Images/contact.png" class="menuIcons" />
+         </div>
+         <a href="#about">Contact</a>
+      </div>
+      <div class="box">
+         <div class="img-container">
+            <img src="Images/coffee.png" class="menuIcons" />
+         </div>
+         <a href="#about">About</a>
+      </div>
+      <div id="id01" class="modal">
+        <form class="modal-content" action="/action_page.php" method="post">
+           <div class="imgcontainer">
+              <img src="./Images/avatar2.png" alt="Avatar" class="avatar">
+           </div>
+           <div class="container">
+              <label for="uname"><b>Username</b></label>
+              <input type="text" placeholder="Enter Username" name="uname" required>
+              <label for="psw"><b>Password</b></label>
+              <input type="password" placeholder="Enter Password" name="psw" required>
+              <button type="submit">Login</button>
+              <button onclick="openRegistrationForm()" style="width:auto;">Register</button>
+              <label>
+              <input type="checkbox" checked="checked" name="remember"> Remember me
+              </label>
+           </div>
+           <div class="container" style="background-color:#f1f1f1">
+              <button type="button" onclick="handleclick()" class="cancelbtn">Cancel</button>
+              <span class="psw">Forgot password?</span>
+           </div>
+        </form>
+     </div>
+     <div id="id02" class="modal">
+      <form class="modal-content modal-content2" action="/register_page.php" method="post">
+          <!-- Registration Modal Content -->
+          <div class="imgcontainer">
+              <img src="./Images/avatar2.png" alt="Avatar" class="avatar">
+          </div>
+          <div class="container">
+              <label for="email"><b>Email</b> </label>
+              <input type="text" placeholder="Enter Email" name="email">
+              <label for="username"><b>Username</b></label>
+              <input type="text" placeholder="Enter Username" name="username" required>
+              <label for="password"><b>Password</b></label>
+              <input type="password" placeholder="Enter Password" name="password" required>
+              <label for="confirmPassword"><b>Confirm Password</b> </label>
+              <input type="text" placeholder="Confirm password" name="confirmPassword">
+              <button type="button" onclick="closeRegAndDisplayLogin()" style="width:auto;">Login</button>
+              <label>
+              <input type="checkbox" checked="checked" name="newremember"> Remember me
+              </label>
+          </div>
+          <div class="container" style="background-color:#f1f1f1">
+              <button type="button" onclick="handleclick()" class="cancelbtn">Cancel</button>
+              <!-- Additional registration options if needed -->
+          </div>
+      </form>
+  </div>
+      <script type="text/JavaScript" src="/js/content.js"></script>
+   </body>
+</html>
