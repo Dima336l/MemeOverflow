@@ -1,7 +1,5 @@
 import express from "express";
 import bodyParser from "body-parser";
-import run from "./backend/config/database.mjs";
-import User from "./backend/schemas/userSchema.mjs";
 
 const app = express();
 const port = 3000;
@@ -48,4 +46,3 @@ app.post("/M00888146/Register", async (req, res) => {
   }
 });
 
-run();

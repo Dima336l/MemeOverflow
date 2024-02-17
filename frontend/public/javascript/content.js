@@ -1,33 +1,48 @@
 const body = document.body;
-var modal = document.getElementById("id01");
-var modal2 = document.getElementById("id02");
+var modal3 = document.getElementById("id03");
 var loginForm = document.getElementById("id01");
 var registrationForm = document.getElementById("id02");
+var postForm = document.getElementById("id03");
 var cancelButtons = document.querySelectorAll(".cancelbtn");
 var toggleBtn = document.getElementById("toggle-btn");
 var avatarIcon = document.getElementById("avatar-icon");
-const contentDiv = document.querySelectorAll(".meme-container");
+var contentDiv = document.querySelectorAll(".meme-container");
+var postIcon = document.getElementById("post-btn");
 var isModalOpen = false;
+var isPostFormOpen = false;
 
-// When the user clicks anywhere outside of the modal, close it
 window.onclick = function (event) {
   if (
-    event.target == modal ||
-    event.target == modal2 ||
-    event.target == avatarIcon
+    event.target == avatarIcon ||
+    event.target == loginForm ||
+    event.target == registrationForm ||
+    event.target == postIcon ||
+    event.target == postForm  
   ) {
     if (event.target == avatarIcon && !isModalOpen) {
-      isModalOpen = true;
       openLoginForm();
+      isModalOpen = true;
+    } else if (event.target == postIcon && !isPostFormOpen) {
+      closeModals();
+      showPost();
+      isPostFormOpen = true;
+      isModalOpen = false;
+    } else if (event.target == postIcon && isModalOpen) {
+      closeModals();
+      showPost();
+      isPostFormOpen = true;
+      isModalOpen = false;
     } else {
       closeModals();
       isModalOpen = false;
+      isPostFormOpen = false;
     }
   }
 };
 
 cancelButtons.forEach(function (cancelButton) {
   cancelButton.addEventListener("click", closeModals);
+  isModalOpen = false;
 });
 
 toggleBtn.addEventListener("click", function () {
@@ -48,6 +63,15 @@ function hideFeed() {
   });
 }
 
+function showPost() {
+  loginForm.style.display = "none";
+  registrationForm.style.display = "none";
+  hideFeed();
+  document.body.classList.add("modal-show");
+  postForm.classList.add("animate");
+  postForm.style.display = "block";
+}
+
 function showFeed() {
   contentDiv.forEach((div) => {
     div.classList.remove("hidden");
@@ -55,16 +79,15 @@ function showFeed() {
 }
 
 function closeModals() {
-  modal.style.display = "none";
-  modal2.style.display = "none";
+  loginForm.style.display = "none";
+  registrationForm.style.display = "none";
+  postForm.style.display = "none";
   body.classList.remove("modal-show");
-  clearForms();
   showFeed();
 }
 
 function closeRegistrationForm() {
   clearErrorPopup();
-  clearRegistrationForm();
   registrationForm.style.display = "none";
 }
 
@@ -74,19 +97,20 @@ function closeRegAndDisplayLogin() {
 }
 
 function openLoginForm() {
+  postForm.style.display = "none";
   hideFeed();
   clearErrorPopup();
   document.body.classList.add("modal-show");
-  modal.classList.add("animate");
+  loginForm.classList.add("animate");
   loginForm.style.display = "block";
 }
 
 function closeLoginForm() {
   loginForm.style.display = "none";
-  modal.classList.remove("animate");
+  loginForm.classList.remove("animate");
 }
 
 function openRegistrationForm() {
   closeLoginForm();
-  registrationForm.style.display = "block"; 
+  registrationForm.style.display = "block";
 }
