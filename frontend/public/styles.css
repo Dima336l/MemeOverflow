@@ -1,8 +1,8 @@
-* {
+*{
   font-family: "Comic Sans MS", cursive, sans-serif;
-  overflow-x: hidden;
 }
 
+/* Navbar Styling */
 .nav-item {
   margin-top: 10px;
 }
@@ -54,14 +54,14 @@
   padding-top: 7px;
 }
 
+/* Styling for vertical side menu */
 .vertical-menu {
-  margin-top: 80px;
-  width: 200px; /* Adjust the width of the menu as needed */
+  top: 80px;
+  width: 200px; 
   background-color: grey;
   padding-top: 20px;
   position: fixed;
   height: 100%;
-  overflow: auto;
 }
 
 body.dark-mode .vertical-menu {
@@ -91,15 +91,16 @@ img.menuIcons {
   height: 40px;
 }
 
-.img-container {
-  width: 50px;
-}
 
 .box {
   display: flex;
-  padding-left: 5px;
+  overflow: hidden;
+  height: 55px; 
+  align-items: center;
 }
 
+
+/* Individual styling for icons */
 #programmingIcon {
   width: 80px;
   height: 60px;
@@ -116,10 +117,10 @@ img.menuIcons {
   margin-top: -10px;
 }
 
-#javaIcon {
-  width: 115px;
-  height: 50px;
-  margin-left: -40px;
+.javaIcon {
+  height: 50px !important;
+  width: 100px !important;
+  margin-left: -30px;
 }
 
 .input-group {
@@ -317,7 +318,7 @@ form.example button {
 
 .fa {
   margin-top: 13px;
-  padding-bottom: 7.7px;
+  padding-bottom: 13.7px;
   margin-left: 1px;
 }
 
@@ -469,6 +470,7 @@ form.example::after {
   margin-right: -31px;
 }
 
+/* Horizontal line sytling */
 hr {
   width: 700px;
   display: block;
@@ -486,14 +488,13 @@ hr.rounded {
   border-radius: 5px;
 }
 
-.rounded {
-  margin-top: 30px;
-}
 
 .navbar {
+  top:0px;
   position: fixed;
   z-index: 100000000000;
   width: 100%;
+  overflow-y: hidden;
 }
 
 form.example button {
@@ -504,10 +505,12 @@ form.example button {
   justify-content: center;
 }
 
+/* Styling post modal */
 #id03 {
   margin-top: 50px;
 }
 
+/* Padding for modals */
 .container-bot {
   padding-top: 25px;
   padding-bottom: 25px;
@@ -515,4 +518,10 @@ form.example button {
 
 .container-bottom-login {
   justify-content: space-between;
+}
+
+.img-container {
+  display: inline-block;
+  width: 50px !important;
+  margin-left: -10px;
 }

@@ -1,48 +1,73 @@
 import express from "express";
 import bodyParser from "body-parser";
+import { client } from "./backend/config/mongoClient.mjs";
+import insertOne from "./backend/CRUD/insert.mjs";
+import getUsers from "./backend/CRUD/read.mjs";
 
 const app = express();
-const port = 3000;
 
 app.use(bodyParser.json());
 app.use(express.static("frontend/public"));
 
-app.listen(port, () => {
+const port = 3000;
+
+app.listen(port, async () => {
   console.log(`Server started on port ${port}`);
 });
 
-app.get("/M00888146", (req, res) => {
-  res.send({
-    Name: "Dumitru Nirca",
-    Address: "Nircadmitrii@icloud.com",
-    "Student ID": "M00888146"
+app.get("/M00888146", async (req, res, next) => {
+  try {
+    const cursor = await getUsers();
+    res.send(cursor);
+  } catch (error) {
+    next(error);
+  }
+});
+
+app.post("/M00888146", async (req, res, next) => {
+  try {
+    await insertOne();
+    res.send({message: "Student was successfully added to the database."});
+  } catch (error) {
+    next(error);
+  }
+});
+
+// Error handling middleware to catch any unhandled errors
+app.use((err, req, res, next) => {
+  console.error(err);
+  res.status(500).json({ error: "Internal server error" });
+});
+
+// Clean up MongoDB client when the process exits
+process.on("exit", () => {
+  try {
+    client.close();
+  } catch (error) {
+    console.error("Error closing MongoDB client:", error);
+  }
+});
+
+// Clean up MongoDB client when receiving any of the following signals
+[
+  "SIGHUP",
+  "SIGINT",
+  "SIGQUIT",
+  "SIGILL",
+  "SIGTRAP",
+  "SIGABRT",
+  "SIGBUS",
+  "SIGFPE",
+  "SIGUSR1",
+  "SIGSEGV",
+  "SIGUSR2",
+  "SIGTERM",
+].forEach(function (signal) {
+  process.on(signal, function () {
+    client.close();
+    process.exit(1);
   });
 });
 
-app.get("/M00888146/Register", (req, res) => {
-  res.send("Welcome to the Registration Page!");
-});
 
-app.post("/M00888146/Register", async (req, res) => {
-  try {
-    // Extract data from the request body
-    const { email, username, password } = req.body;
-
-    // Create a new user document
-    const newUser = new User({
-      username,
-      email,
-      password,
-    });
-
-    // Save the new user to the database
-    await newUser.save();
-
-    // Respond with a success message
-    res.status(201).json({ message: "User registered successfully" });
-  } catch (error) {
-    // If an error occurs, respond with an error message
-    res.status(500).json({ error: "Internal server error" });
-  }
-});
 

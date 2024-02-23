@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
       <a class="navbar-brand logoText" href="#">MemeOverflow</a>
       <img src="Images/smile.png" id="smile" />
@@ -72,94 +73,123 @@
         </li>
       </ul>
     </nav>
+    <!-- Vertical Menu -->
     <div class="vertical-menu">
       <div class="box">
-        <div class="img-container">
+        <a href="#home" class="link-container">
+         <div class="img-container">
           <img
             src="Images/programming.png"
             class="menuIcons"
             id="programmingIcon"
           />
-        </div>
-        <a href="#home"> Programming </a>
+         </div>
+         Programming
+        </a>
       </div>
       <div class="box">
-        <div class="img-container">
+        <a href="#about">
+         <div class="img-container">
           <img src="Images/front-end.png" class="menuIcons" />
-        </div>
-        <a href="#about">Front end</a>
+         </div>
+          Front end</a
+        >
       </div>
       <div class="box">
-        <div class="img-container">
+        <a href="#about">
+         <div class="img-container">
           <img src="Images/back-end.png" class="menuIcons" />
-        </div>
-        <a href="#about">Back end</a>
+          </div>
+          Back end</a
+        >
       </div>
       <div class="box">
-        <div class="img-container">
+        <a href="#about">
+         <div class="img-container">
           <img src="Images/debugging.png" class="menuIcons" />
         </div>
-        <a href="#about">Debugging</a>
+          Debugging</a
+        >
       </div>
       <div class="box">
-        <div class="img-container linux-container">
+        <a href="#about">
+         <div class="img-container">
           <img src="Images/linux.png" class="menuIcons" id="linuxIcon" />
-        </div>
-        <a href="#about">Linux</a>
+          </div>
+          Linux</a
+        >
       </div>
       <div class="box">
-        <div class="img-container">
+        <a href="#about">
+         <div class="img-container">
           <img src="Images/python.png" class="menuIcons" />
-        </div>
-        <a href="#about">Python</a>
+          </div>
+          Python</a
+        >
       </div>
       <div class="box">
-        <div class="img-container">
+        <a href="#about">
+         <div class="img-container">
           <img src="Images/testing.png" class="menuIcons" />
-        </div>
-        <a href="#about">Testing</a>
+          </div>
+          Testing</a
+        >
       </div>
       <div class="box">
-        <div class="img-container">
-          <img src="Images/java.png" class="menuIcons" id="javaIcon" />
-        </div>
-        <a href="#about">Java</a>
+        <a href="#about">
+         <div class="img-container">
+          <img src="Images/java.png" class="menuIcons javaIcon" />
+          </div>
+          Java</a
+        >
       </div>
       <div class="box">
-        <div class="img-container">
+        <a href="#about">
+         <div class="img-container">
           <img src="Images/JavaScript.png" class="menuIcons" />
-        </div>
-        <a href="#about">JavaScript</a>
+          </div>
+          JavaScript</a
+        >
       </div>
       <div class="box">
-        <div class="img-container">
+        <a href="#about">
+         <div class="img-container">
           <img src="Images/C++.png" class="menuIcons" />
-        </div>
-        <a href="#about">C++</a>
+          </div>
+          C++</a
+        >
       </div>
+      <!-- Search Bar -->
       <form class="example" action="action_page.php">
         <input type="text" placeholder="Search Post" name="search" />
         <button type="submit"><i class="fa fa-search"></i></button>
       </form>
+      <!-- Footer -->
       <div class="box homeIcon">
-        <div class="img-container">
+        <a href="#about">
+         <div class="img-container">
           <img src="Images/house.png" class="menuIcons" />
-        </div>
-        <a href="#about">Home</a>
+         </div>
+          Home</a
+        >
       </div>
       <div class="box">
-        <div class="img-container">
+        <a href="#about">
+         <div class="img-container">
           <img src="Images/contact.png" class="menuIcons" />
-        </div>
-        <a href="#about">Contact</a>
+         </div>
+          Contact</a
+        >
       </div>
       <div class="box">
-        <div class="img-container">
+        <a href="#about">
+         <div class="img-container">
           <img src="Images/coffee.png" class="menuIcons" />
-        </div>
-        <a href="#about">About</a>
+         </div>
+          About</a
+        >
       </div>
-    </div>
+    <!-- Login Modal Content -->
     <div id="id01" class="modal">
       <form
         class="modal-content"
@@ -257,10 +287,6 @@
             <button type="button" onclick="closeRegAndDisplayLogin()">
               Login
             </button>
-            <label class="rememberMe">
-              <input type="checkbox" checked="checked" name="newremember" />
-              Remember me
-            </label>
             <button type="submit">Register</button>
           </div>
         </div>
@@ -272,6 +298,7 @@
         </div>
       </form>
     </div>
+    <!-- Post Modal Content -->
     <div id="id03" class="modal">
       <form class="modal-content modal-content2" id="postForm" method="post">
         <div class="imgcontainer">
@@ -292,6 +319,8 @@
         </div>
       </form>
     </div>
+    </div>
+    <!-- Meme content -->
     <div class="meme-container first-container">
       <h1 class="tag">Programming</h1>
       <h2 class="description">Programming isn't stressfull.</h2>
@@ -336,6 +365,7 @@
       </div>
       <hr class="rounded" />
     </div>
+    <!-- JavaScript scripts -->
     <script type="text/JavaScript" src="javascript/validation.js"></script>
     <script type="text/JavaScript" src="javascript/content.js"></script>
     <script type="text/JavaScript" src="javascript/registration.js"></script>
