@@ -21,7 +21,6 @@ async function connect() {
 connect();
 
 const db = client.db("test");
-const coll = db.collection("Students");
 
-export { client, connect, coll };
+export { db, client };
 

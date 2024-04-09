@@ -1,4 +1,4 @@
-*{
+* {
   font-family: "Comic Sans MS", cursive, sans-serif;
 }
 
@@ -57,7 +57,7 @@
 /* Styling for vertical side menu */
 .vertical-menu {
   top: 80px;
-  width: 200px; 
+  width: 200px;
   background-color: grey;
   padding-top: 20px;
   position: fixed;
@@ -91,14 +91,12 @@ img.menuIcons {
   height: 40px;
 }
 
-
 .box {
   display: flex;
   overflow: hidden;
-  height: 55px; 
+  height: 55px;
   align-items: center;
 }
-
 
 /* Individual styling for icons */
 #programmingIcon {
@@ -146,7 +144,7 @@ input[type="password"] {
   height: 60px !important;
   border: none;
   cursor: pointer;
-  z-index: 9999999999999999;
+  /* z-index: 9999999999999999; */
 }
 
 .icon:hover {
@@ -316,6 +314,12 @@ form.example button {
   margin-left: -2px;
 }
 
+#feed img {
+  margin-top: 5px;
+  height: 50px !important;
+  width: 50px !important;
+}
+
 .fa {
   margin-top: 13px;
   padding-bottom: 13.7px;
@@ -358,6 +362,10 @@ form.example::after {
   text-align: center;
 }
 
+.hidden {
+  display: none;
+}
+
 .meme-container {
   overflow: hidden;
   display: flex;
@@ -367,7 +375,7 @@ form.example::after {
   position: relative;
   margin-top: 50px;
   left: 72vh;
-  z-index: 1;
+  /* z-index: -100000000000000000000000; */
   width: 700px;
   height: auto;
 }
@@ -488,9 +496,8 @@ hr.rounded {
   border-radius: 5px;
 }
 
-
 .navbar {
-  top:0px;
+  top: 0px;
   position: fixed;
   z-index: 100000000000;
   width: 100%;
@@ -524,4 +531,93 @@ form.example button {
   display: inline-block;
   width: 50px !important;
   margin-left: -10px;
+}
+
+/* #anonymous {
+  margin-top: -3px;
+  height: 70px !important;
+  width: 70px !important;
+} */
+
+.profileContainer {
+  text-align: left;
+}
+
+#profileForm h1 {
+  margin-top: 20px;
+  text-align: center;
+}
+
+#uploadContainer {
+  display: flex;
+  margin: 0px 50px;
+  align-items: center;
+}
+
+#saveChanges {
+  background-color: blue;
+  color: white;
+  margin-right: auto !important;
+}
+
+#bottom-profile {
+  justify-content: space-between;
+}
+
+.item-left {
+  margin-left: 0 !important;
+}
+
+
+#logoutBtn {
+  background-color: red !important;
+  color: white;
+}
+
+.profileHeader {
+  margin-left: 290px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.statsProfile {
+  align-items: center;
+  /* justify-content: center; */
+  display: flex;
+  flex-direction: row;
+  margin-left: -130px;
+  margin-top: 150px;
+  margin-bottom: -60px;
+  width: 700px;
+}
+
+.statsProfile img { 
+  width: 50px;
+}
+
+.textStats {
+  margin-top: -5px;
+  margin-left: 20px;
+}
+
+.textStats H2{
+  margin-top: 10px;
+  font-size: large !important;
+}
+
+.profileHr {
+  margin-top: 100px;
+ margin-bottom: -80px;
+ margin-left: 680px;
+}
+
+#followIcon {
+  margin-left: 20px;
+}
+
+#followIcon {
+  transition: opacity 0.5s ease;
 }

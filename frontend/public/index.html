@@ -16,11 +16,12 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="styles.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   </head>
   <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
-      <a class="navbar-brand logoText" href="#">MemeOverflow</a>
+      <a class="navbar-brand logoText" href="index.html">MemeOverflow</a>
       <img src="Images/smile.png" id="smile" />
       <button
         class="navbar-toggler"
@@ -37,7 +38,7 @@
         class="navbar-collapse collapse flex-grow-1 justify-content-center"
         id="navbarText"
       >
-        <ul class="nav justify-content-center">
+        <ul class="nav justify-content-center" id="ulElement">
           <li class="nav-item first-two">
             <img src="Images/home.png" />
             <a class="navbar-brand" href="#">Home</a>
@@ -58,103 +59,110 @@
       </div>
       <ul class="nav navbar-nav navbar-right">
         <li class="nav-item">
+          <img src="Images/anonymous.png" class="icon" id="anonymous" />
+        </li>
+        <li class="nav-item">
           <img
             id="avatar-icon"
-            src="Images/avatar.png"
+            src="Uploads/avatar.png"
             class="icon"
             onclick="openLoginForm()"
           />
         </li>
         <li class="nav-item">
-          <img src="Images/Post.png" class="icon" id="post-btn" />
+          <img id="post-btn" src="Images/Post.png" class="icon" />
+        </li>
+        <li class="nav-item" id="feed">
+          <img src="Images/feed.png" class="icon" onclick="getFeedFromFollowers()"/>
         </li>
         <li class="nav-item">
           <img src="Images/moon.png" class="icon" id="toggle-btn" />
         </li>
       </ul>
     </nav>
+
     <!-- Vertical Menu -->
     <div class="vertical-menu">
       <div class="box">
         <a href="#home" class="link-container">
-         <div class="img-container">
-          <img
-            src="Images/programming.png"
-            class="menuIcons"
-            id="programmingIcon"
-          />
-         </div>
-         Programming
+          <div class="img-container">
+            <img
+              src="Images/programming.png"
+              class="menuIcons"
+              id="programmingIcon"
+            />
+          </div>
+          Programming
         </a>
       </div>
       <div class="box">
         <a href="#about">
-         <div class="img-container">
-          <img src="Images/front-end.png" class="menuIcons" />
-         </div>
+          <div class="img-container">
+            <img src="Images/front-end.png" class="menuIcons" />
+          </div>
           Front end</a
         >
       </div>
       <div class="box">
         <a href="#about">
-         <div class="img-container">
-          <img src="Images/back-end.png" class="menuIcons" />
+          <div class="img-container">
+            <img src="Images/back-end.png" class="menuIcons" />
           </div>
           Back end</a
         >
       </div>
       <div class="box">
         <a href="#about">
-         <div class="img-container">
-          <img src="Images/debugging.png" class="menuIcons" />
-        </div>
+          <div class="img-container">
+            <img src="Images/debugging.png" class="menuIcons" />
+          </div>
           Debugging</a
         >
       </div>
       <div class="box">
         <a href="#about">
-         <div class="img-container">
-          <img src="Images/linux.png" class="menuIcons" id="linuxIcon" />
+          <div class="img-container">
+            <img src="Images/linux.png" class="menuIcons" id="linuxIcon" />
           </div>
           Linux</a
         >
       </div>
       <div class="box">
         <a href="#about">
-         <div class="img-container">
-          <img src="Images/python.png" class="menuIcons" />
+          <div class="img-container">
+            <img src="Images/python.png" class="menuIcons" />
           </div>
           Python</a
         >
       </div>
       <div class="box">
         <a href="#about">
-         <div class="img-container">
-          <img src="Images/testing.png" class="menuIcons" />
+          <div class="img-container">
+            <img src="Images/testing.png" class="menuIcons" />
           </div>
           Testing</a
         >
       </div>
       <div class="box">
         <a href="#about">
-         <div class="img-container">
-          <img src="Images/java.png" class="menuIcons javaIcon" />
+          <div class="img-container">
+            <img src="Images/java.png" class="menuIcons javaIcon" />
           </div>
           Java</a
         >
       </div>
       <div class="box">
         <a href="#about">
-         <div class="img-container">
-          <img src="Images/JavaScript.png" class="menuIcons" />
+          <div class="img-container">
+            <img src="Images/JavaScript.png" class="menuIcons" />
           </div>
           JavaScript</a
         >
       </div>
       <div class="box">
         <a href="#about">
-         <div class="img-container">
-          <img src="Images/C++.png" class="menuIcons" />
+          <div class="img-container">
+            <img src="Images/C++.png" class="menuIcons" />
           </div>
           C++</a
         >
@@ -167,207 +175,286 @@
       <!-- Footer -->
       <div class="box homeIcon">
         <a href="#about">
-         <div class="img-container">
-          <img src="Images/house.png" class="menuIcons" />
-         </div>
+          <div class="img-container">
+            <img src="Images/house.png" class="menuIcons" />
+          </div>
           Home</a
         >
       </div>
       <div class="box">
         <a href="#about">
-         <div class="img-container">
-          <img src="Images/contact.png" class="menuIcons" />
-         </div>
+          <div class="img-container">
+            <img src="Images/contact.png" class="menuIcons" />
+          </div>
           Contact</a
         >
       </div>
       <div class="box">
         <a href="#about">
-         <div class="img-container">
-          <img src="Images/coffee.png" class="menuIcons" />
-         </div>
+          <div class="img-container">
+            <img src="Images/coffee.png" class="menuIcons" />
+          </div>
           About</a
         >
       </div>
-    <!-- Login Modal Content -->
-    <div id="id01" class="modal">
-      <form
-        class="modal-content"
-        id="loginForm"
-        action="/action_page.php"
-        method="post"
-      >
-        <div class="imgcontainer">
-          <img src="./Images/avatar2.png" alt="Avatar" class="avatar" />
-        </div>
-        <div class="container">
-          <label for="uname"><b>Username</b></label>
-          <input
-            type="text"
-            id="usernameLogin"
-            placeholder="Enter Username"
-            autocomplete="username"
-          />
-          <label for="psw"><b>Password</b></label>
-          <input
-            type="password"
-            id="passwordLogin"
-            placeholder="Enter Password"
-            autocomplete="current-password"
-          />
-          <div class="error"></div>
-          <div class="formFotter">
-            <button type="submit">Login</button>
-            <label class="rememberMe">
-              <input type="checkbox" checked="checked" name="remember" />
-              Remember me
-            </label>
-            <button onclick="openRegistrationForm()" class="registerButton">
-              Register
+
+      <!-- Login Modal Content -->
+      <div id="id01" class="modal">
+        <form
+          class="modal-content"
+          id="loginForm"
+          action="/action_page.php"
+          method="post"
+        >
+          <div class="imgcontainer">
+            <img src="./Images/avatar2.png" alt="Avatar" class="avatar" />
+          </div>
+          <div class="container">
+            <label for="uname"><b>Email</b></label>
+            <input
+              type="text"
+              id="emailLogin"
+              placeholder="Enter Email"
+              autocomplete="email"
+              value="Nircadmitrii@icloud.com"
+            />
+            <label for="psw"><b>Password</b></label>
+            <input
+              type="password"
+              id="passwordLogin"
+              placeholder="Enter Password"
+              autocomplete="current-password"
+              value="Dumitras123@"
+            />
+            <div class="error"></div>
+            <div class="formFotter">
+              <button type="submit" onclick="logIn()">Login</button>
+              <label class="rememberMe">
+                <input type="checkbox" checked="checked" name="remember" />
+                Remember me
+              </label>
+              <button onclick="openRegistrationForm()" class="registerButton">
+                Register
+              </button>
+            </div>
+          </div>
+          <div
+            class="container-bot container-bottom container-bottom-login"
+            style="background-color: #f1f1f1"
+          >
+            <button type="button" class="cancelbtn">Cancel</button>
+            <span class="psw">Forgot password?</span>
+          </div>
+        </form>
+      </div>
+      <div id="id02" class="modal">
+        <form
+          action="/Register"
+          class="modal-content modal-content2"
+          id="registrationForm"
+          method="post"
+        >
+          <!-- Registration Modal Content -->
+          <div class="imgcontainer">
+            <img src="./Images/avatar2.png" alt="Avatar" class="avatar" />
+          </div>
+          <div class="container">
+            <label for="email"><b>Email</b> </label>
+            <input
+              type="text"
+              id="emailRegistration"
+              placeholder="Enter Email"
+              name="email"
+              value="Nircadmitrii@icloud.com"
+            />
+            <label for="username"><b>Username</b></label>
+            <input
+              type="text"
+              placeholder="Enter Username"
+              name="username"
+              autocomplete="username"
+              id="usernameRegistration"
+              value="Dumitru"
+            />
+            <label for="password"><b>Password</b></label>
+            <input
+              type="password"
+              placeholder="Enter Password"
+              name="password"
+              autocomplete="current-password new-password"
+              id="passwordRegistration"
+              value="Dumitras123@"
+            />
+            <label for="confirmPassword"><b>Confirm Password</b> </label>
+            <input
+              type="password"
+              placeholder="Confirm password"
+              autocomplete="new-password"
+              name="confirmPassword"
+              id="confirmRegistration"
+              value="Dumitras123@"
+            />
+            <div class="error"></div>
+            <div class="formFotter">
+              <button type="button" onclick="closeRegAndDisplayLogin()">
+                Login
+              </button>
+              <button type="submit" onclick="register()" id="registerBtn">
+                Register
+              </button>
+            </div>
+          </div>
+          <div
+            class="container-bot container-bottom"
+            style="background-color: #f1f1f1"
+          >
+            <button type="button" class="cancelbtn">Cancel</button>
+          </div>
+        </form>
+      </div>
+      <!-- Post Modal Content -->
+      <div id="id03" class="modal">
+        <form class="modal-content modal-content2" id="postForm" method="post">
+          <div class="imgcontainer">
+            <img src="./Images/Post2.png" alt="Avatar" class="avatar" />
+          </div>
+          <div class="container">
+            <input
+              type="text"
+              placeholder="Category"
+              name="category"
+              value=""
+              id="categoryUpload"
+            />
+            <input
+              type="text"
+              placeholder="Title"
+              name="title"
+              value=""
+              id="titleUpload"
+            />
+            <div class="error"></div>
+            <div class="formFotter"></div>
+          </div>
+          <div
+            class="container-bot container-bottom"
+            style="background-color: #f1f1f1"
+          >
+            <input type="file" class="form-control-file" id="imageUpload" />
+            <button
+              id="postBtn"
+              type="button"
+              class="postbtn"
+              onclick="upload()"
+            >
+              Post
             </button>
           </div>
-        </div>
-        <div
-          class="container-bot container-bottom container-bottom-login"
-          style="background-color: #f1f1f1"
+        </form>
+      </div>
+      <div id="id04" class="modal">
+        <form
+          class="modal-content modal-content2"
+          id="profileForm"
+          method="post"
         >
-          <button type="button" class="cancelbtn">Cancel</button>
-          <span class="psw">Forgot password?</span>
-        </div>
-      </form>
-    </div>
-    <div id="id02" class="modal">
-      <form
-        class="modal-content modal-content2"
-        id="registrationForm"
-        method="post"
-      >
-        <!-- Registration Modal Content -->
-        <div class="imgcontainer">
-          <img src="./Images/avatar2.png" alt="Avatar" class="avatar" />
-        </div>
-        <div class="container">
-          <label for="email"><b>Email</b> </label>
-          <input
-            type="text"
-            id="emailRegistration"
-            placeholder="Enter Email"
-            name="email"
-            value=""
-          />
-          <label for="username"><b>Username</b></label>
-          <input
-            type="text"
-            placeholder="Enter Username"
-            name="username"
-            autocomplete="username"
-            id="usernameRegistration"
-            value=""
-          />
-          <label for="password"><b>Password</b></label>
-          <input
-            type="password"
-            placeholder="Enter Password"
-            name="password"
-            autocomplete="current-password new-password"
-            id="passwordRegistration"
-            value=""
-          />
-          <label for="confirmPassword"><b>Confirm Password</b> </label>
-          <input
-            type="password"
-            placeholder="Confirm password"
-            autocomplete="new-password"
-            name="confirmPassword"
-            id="confirmRegistration"
-            value=""
-          />
-          <div class="error"></div>
-          <div class="formFotter">
-            <button type="button" onclick="closeRegAndDisplayLogin()">
-              Login
-            </button>
-            <button type="submit">Register</button>
+          <h1>Profile</h1>
+          <div class="imgcontainer" id="profileContainer">
+            <img src="./Images/anonymous.png" alt="Avatar" class="avatar" />
+            <div id="uploadContainer">
+              <input type="file" class="form-control-file" id="avatarUpload" />
+              <button
+                id="postBtnUpload"
+                type="button"
+                class="postbtn"
+                onclick="uploadAvatar()"
+              >
+                Post
+              </button>
+            </div>
           </div>
-        </div>
-        <div
-          class="container-bot container-bottom"
-          style="background-color: #f1f1f1"
-        >
-          <button type="button" class="cancelbtn">Cancel</button>
-        </div>
-      </form>
+          <div class="container">
+            <input
+              type="text"
+              placeholder="Display name"
+              name="category"
+              value=""
+              id="a"
+            />
+            <input
+              type="text"
+              placeholder="Gender"
+              name="title"
+              value=""
+              id="ba"
+            />
+            <input
+              type="text"
+              placeholder="Birthday"
+              name="title"
+              value=""
+              id="bb"
+            />
+            <input
+              type="text"
+              placeholder="About"
+              name="title"
+              value=""
+              id="bc"
+            />
+            <div class="error"></div>
+            <div class="formFotter"></div>
+          </div>
+          <div
+            id="bottom-profile"
+            class="container-bot container-bottom"
+            style="background-color: #f1f1f1"
+          >
+            <button
+              id="saveChanges"
+              type="button"
+              class="postbtn item-left"
+              onclick="upload()"
+            >
+              Save Changes
+            </button>
+            <button
+              id="logoutBtn"
+              type="button"
+              class="postbtn item-right"
+              onclick="logout()"
+            >
+              Log out
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
-    <!-- Post Modal Content -->
-    <div id="id03" class="modal">
-      <form class="modal-content modal-content2" id="postForm" method="post">
-        <div class="imgcontainer">
-          <img src="./Images/Post2.png" alt="Avatar" class="avatar" />
-        </div>
-        <div class="container">
-          <input type="text" placeholder="Category" name="category" />
-          <input type="text" placeholder="Title" name="title" />
-          <div class="error"></div>
-          <div class="formFotter"></div>
-        </div>
-        <div
-          class="container-bot container-bottom"
-          style="background-color: #f1f1f1"
-        >
-          <input type="file" class="form-control-file" id="imageUpload" />
-          <button type="button" class="postbtn">Post</button>
-        </div>
-      </form>
-    </div>
+    <div id="profContainers">
     </div>
     <!-- Meme content -->
-    <div class="meme-container first-container">
-      <h1 class="tag">Programming</h1>
-      <h2 class="description">Programming isn't stressfull.</h2>
-      <div class="stats-header">
-        <img src="./Images/avatar.png" />
-        <h2 class="stats-text">Dima69</h2>
-        <h3 class="stats-text">May 1</h3>
-      </div>
-      <div class="image-container">
-        <img src="./Images/meme3.jpg" />
-      </div>
-      <div class="bottom-stats">
-        <img src="./Images/like.png" />
-        <h2 class="bottom-stats-text">500</h2>
-        <img src="./Images/comment.png" id="comment" />
-        <h2 class="bottom-stats-text">300</h2>
-        <img src="./Images/eye.png" id="eye" />
-        <h2 class="bottom-stats-text" id="view-count">100</h2>
-        <img src="./Images/save.png" class="right-align" />
-      </div>
-      <hr class="rounded" />
-    </div>
-    <div class="meme-container">
-      <h1 class="tag">C++</h1>
-      <h2 class="description">C++ vs Python.</h2>
-      <div class="stats-header">
-        <img src="./Images/avatar2.png" />
-        <h2 class="stats-text">Andrei96</h2>
-        <h3 class="stats-text">Dec 1</h3>
-      </div>
-      <div class="image-container">
-        <img src="./Images/meme4.jpg" />
-      </div>
-      <div class="bottom-stats">
-        <img src="./Images/like.png" />
-        <h2 class="bottom-stats-text">1000</h2>
-        <img src="./Images/comment.png" id="comment" />
-        <h2 class="bottom-stats-text">500</h2>
-        <img src="./Images/eye.png" id="eye" />
-        <h2 class="bottom-stats-text" id="view-count">200</h2>
-        <img src="./Images/save.png" class="right-align" />
-      </div>
-      <hr class="rounded" />
-    </div>
+    <div id="imageContainer"></div>
     <!-- JavaScript scripts -->
     <script type="text/JavaScript" src="javascript/validation.js"></script>
     <script type="text/JavaScript" src="javascript/content.js"></script>
-    <script type="text/JavaScript" src="javascript/registration.js"></script>
+    <script
+      type="text/JavaScript"
+      src="javascript/services/uploadMeme.js"
+    ></script>
+    <script
+      type="text/JavaScript"
+      src="javascript/services/uploadAvatar.js"
+    ></script>
+    <script
+      type="text/JavaScript"
+      src="javascript/services/register.js"
+    ></script>
+    <script type="text/JavaScript" src="javascript/services/login.js"></script>
+    <script
+      type="text/JavaScript"
+      src="javascript/services/display.js"
+    ></script>
+    <script type="text/JavaScript" src="javascript/services/logout.js"></script>
+    <script type="text/JavaScript" src="javascript/services/follow.js"></script>
   </body>
 </html>
