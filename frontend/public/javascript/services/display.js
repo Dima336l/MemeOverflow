@@ -1,3 +1,5 @@
+var searchButton = document.getElementById("searchUser");
+var searchInput = document.getElementById("searchInput");
 const container = document.getElementById("imageContainer");
 function createMemeContainer(
   tag,
@@ -126,7 +128,7 @@ fetch("/M00888146/uploads")
           image.title,
           image.name,
           image.uploadDate,
-          `../uploads/${image.fileName}`,
+          `../uploads/${image.fileName}`, // Interpolation of variables within a string.
           image.likeCount,
           image.commentCount,
           image.viewCount,
@@ -250,7 +252,7 @@ function createProfileHeader(avatar, name, isFollowed) {
   followIcon.addEventListener("click", () => {
     followIcon.style.opacity = "0";
     setTimeout(() => {
-      followIcon.style.display = "none";
+      followIcon.style.display = "none"; // Makes the icon dissapear.
     }, 500);
   });
 
@@ -272,8 +274,12 @@ function createProfileHeader(avatar, name, isFollowed) {
   profileContainer.appendChild(profileHeader);
   profileContainer.appendChild(hr);
 }
-
 async function getFeedIndividual(name) {
+  const tag = document.getElementById("tagID");
+  if (tag) {
+    document.body.removeChild(tag); // Removing the tag if it already exists
+  }
+  let memes;
   try {
     const response = await fetch("/M00888146/getFeed", {
       method: "POST",
@@ -283,7 +289,7 @@ async function getFeedIndividual(name) {
       body: JSON.stringify({ name: name }),
     });
 
-    const memes = await response.json();
+    memes = await response.json();
     container.textContent = "";
     profileContainer.innerHTML = "";
     document.documentElement.scrollTop = 0;
@@ -294,8 +300,8 @@ async function getFeedIndividual(name) {
     );
     for (i = 0; i < memes.memes.length; i++) {
       createMemeContainer(
-        memes.memes[i].title,
         memes.memes[i].category,
+        memes.memes[i].title,
         memes.memes[i].name,
         memes.memes[i].uploadDate,
         `../uploads/${memes.memes[i].fileName}`,
@@ -305,7 +311,12 @@ async function getFeedIndividual(name) {
         memes.memes[i].avatar
       );
     }
-  } catch (error) {}
+  } catch (error) {
+    const newTag = document.createElement("h1");
+    newTag.textContent = memes.error;
+    document.body.appendChild(newTag);
+    newTag.id = "tagID";
+  }
 }
 
 $(document).on("click", ".avIcon", function () {
@@ -315,6 +326,10 @@ $(document).on("click", ".avIcon", function () {
 
 const feed = document.getElementById("feed");
 async function getFeedFromFollowers() {
+  const profileContainer = document.getElementById("profContainers");
+  if (profileContainer) {
+    profileContainer.textContent ="";
+  }
   fetch("/M00888146/getFeedFromFollowers")
     .then((response) => response.json())
     .then((data) => {
@@ -362,8 +377,8 @@ async function getFeed(category) {
     document.documentElement.scrollTop = 0;
     for (i = 0; i < memes.length; i++) {
       createMemeContainer(
-        memes[i].title,
         memes[i].category,
+        memes[i].title,
         memes[i].name,
         memes[i].uploadDate,
         `../uploads/${memes[i].fileName}`,
@@ -377,3 +392,9 @@ async function getFeed(category) {
     // Handle errors...
   }
 }
+
+searchButton.addEventListener("click", async function (event) {
+  event.preventDefault();
+  const name = searchInput.value;
+  getFeedIndividual(name);
+});

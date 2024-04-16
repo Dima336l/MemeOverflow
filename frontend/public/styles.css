@@ -568,7 +568,6 @@ form.example button {
   margin-left: 0 !important;
 }
 
-
 #logoutBtn {
   background-color: red !important;
   color: white;
@@ -580,7 +579,6 @@ form.example button {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-
 }
 
 .statsProfile {
@@ -594,7 +592,7 @@ form.example button {
   width: 700px;
 }
 
-.statsProfile img { 
+.statsProfile img {
   width: 50px;
 }
 
@@ -603,15 +601,15 @@ form.example button {
   margin-left: 20px;
 }
 
-.textStats H2{
+.textStats H2 {
   margin-top: 10px;
   font-size: large !important;
 }
 
 .profileHr {
   margin-top: 100px;
- margin-bottom: -80px;
- margin-left: 680px;
+  margin-bottom: -80px;
+  margin-left: 680px;
 }
 
 #followIcon {
@@ -620,4 +618,10 @@ form.example button {
 
 #followIcon {
   transition: opacity 0.5s ease;
+}
+
+#tagID {
+  position: absolute;
+  left: 875px;
+  top: 150px;
 }

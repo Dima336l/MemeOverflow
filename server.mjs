@@ -7,7 +7,7 @@ import fileUpload from "express-fileupload";
 const usersCollection = db.collection("users");
 const memeCollection = db.collection("memes");
 
-const app = express();
+export const app = express();
 app.use(fileUpload());
 
 app.use(bodyParser.json());
@@ -70,8 +70,8 @@ app.post("/M00888146/Login", async (req, res, next) => {
 });
 
 app.post("/M00888146/uploads", async (request, response) => {
+  const session = request.session;
   try {
-    const session = request.session;
     // Check if a file has been submitted
     if (!request.files || Object.keys(request.files).length === 0) {
       return response.status(400).send({
@@ -79,10 +79,8 @@ app.post("/M00888146/uploads", async (request, response) => {
         message: "Files missing",
       });
     }
-
     // Retrieve the uploaded file
     let myFile = request.files.myFile;
-
     // Check if the uploaded file is an image (implement this check)
 
     // Move the file to the uploads folder
@@ -96,6 +94,7 @@ app.post("/M00888146/uploads", async (request, response) => {
       }
 
       const { title, category } = request.body;
+
       const userDocument = await usersCollection.findOne({
         userEmail: session.username,
       });
@@ -105,10 +104,13 @@ app.post("/M00888146/uploads", async (request, response) => {
           message: "User not found",
         });
       }
-
       if (title === undefined) {
         await usersCollection.updateOne(
           { userEmail: session.username },
+          { $set: { avatar: myFile.name } }
+        );
+        await memeCollection.updateMany(
+          { name: userDocument.userName } , 
           { $set: { avatar: myFile.name } }
         );
       } else {
@@ -240,14 +242,6 @@ app.post("/M00888146/getFeed", async (req, res) => {
   }
 });
 
-app.get("/M00888146/Register", async (req, res, next) => {
-  try {
-    res.status(200).json(users);
-  } catch (error) {
-    next(error);
-  }
-});
-
 app.get("/M00888146/getFeedByCategory", async (req, res, next) => {
   const { category } = req.query;
   const memes = await memeCollection.find().toArray();
@@ -255,12 +249,18 @@ app.get("/M00888146/getFeedByCategory", async (req, res, next) => {
   res.json(filteredMemes);
 });
 
+app.get("/M00888146/users", async (request, response) => {
+  //Return all data in users
+  const users = await getAllUsers();
+  response.send(JSON.stringify(users));
+});
+
 async function checkLogin(req, response) {
   try {
     const session = req.session;
 
     if (!("username" in req.session)) {
-      response.send('{"login": false}');
+      response.json({ login: false });
     } else {
       const userDocument = await usersCollection.findOne({
         userEmail: session.username,
@@ -335,3 +335,49 @@ process.on("exit", () => {
     process.exit(1);
   });
 });
+
+// Functions for testings
+
+export async function addUser(newUser) {
+  const result = await usersCollection.insertOne(newUser);
+  if (result.acknowledged) return 1;
+  throw "Failed to add customer";
+}
+
+export async function addMeme(newUser) {
+  const result = await memeCollection.insertOne(newUser);
+  if (result.acknowledged) return 1;
+  throw "Failed to add meme";
+}
+
+export async function followUser(object) {
+  const userDocument = await usersCollection.findOne({
+    userName: object.userName,
+  });
+  userDocument.followers.push(object.followerName);
+  const result = await usersCollection.updateOne(
+    { userName: object.userName },
+    { $set: { followers: userDocument.followers } }
+  );
+  if (result.acknowledged) return 1;
+  throw "Failed to add follow user";
+}
+
+export async function removeFollowerFromUser(object) {
+  await db
+    .collection("users")
+    .updateOne(
+      { userName: object.userName },
+      { $pull: { followers: object.followerName } }
+    );
+}
+
+export async function getUserByName(userName) {
+  // Assuming you're using MongoDB, retrieve the user document by name
+  return await db.collection("users").findOne({ userName: userName });
+}
+
+async function getAllUsers() {
+  const results = await usersCollection.find({}).toArray();
+  return results;
+}

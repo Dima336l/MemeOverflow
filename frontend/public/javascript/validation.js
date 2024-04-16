@@ -6,7 +6,7 @@ function isValidEmail(email) {
   return emailPattern.test(email);
 }
 
-function validateEmail(email, errorRegister) {
+ function validateEmail(email, errorRegister) {
   if (email.trim() === "") {
     displayError(errorRegister, "Email field is required.");
     return false;
@@ -19,7 +19,7 @@ function validateEmail(email, errorRegister) {
   }
 }
 
-function validateUsername(username, error) {
+ function validateUsername(username, error) {
   if (username.trim() === "") {
     displayError(error, "Username field is required.");
     return false;
@@ -29,7 +29,7 @@ function validateUsername(username, error) {
   }
 }
 
-function validatePassword(password, error) {
+ function validatePassword(password, error) {
   if (password.trim() === "") {
     displayError(error, "Password field is required.");
     return false;
@@ -39,7 +39,7 @@ function validatePassword(password, error) {
   }
 }
 
-function validateConfirmPassowrd(password, confirmPassword, error) {
+ function validateConfirmPassowrd(password, confirmPassword, error) {
   if (confirmPassword.trim() === "") {
     displayError(error, "Password field is required.");
     return false;
@@ -53,7 +53,7 @@ function validateConfirmPassowrd(password, confirmPassword, error) {
   }
 }
 
-function validatePasswordRegistration(password, errorRegister) {
+ function validatePasswordRegistration(password, errorRegister) {
   const errorMessage = isStrongPassword(password);
   if (errorMessage != "Password is strong.") {
     displayError(errorRegister, errorMessage);
@@ -63,8 +63,7 @@ function validatePasswordRegistration(password, errorRegister) {
     return true;
   }
 }
-
-function validateConfirmPassword(password, passwordConfirm, errorRegister) {
+ function validateConfirmPassword(password, passwordConfirm, errorRegister) {
   const errorMessage = "Passwords must match.";
   if (!validatePassword(passwordConfirm, errorRegister)) {
     return false;
@@ -77,7 +76,7 @@ function validateConfirmPassword(password, passwordConfirm, errorRegister) {
   }
 }
 
-function isStrongPassword(password) {
+ function isStrongPassword(password) {
   if (password.length < 8) {
     return "Password must be at least 8 characters long.";
   }
@@ -158,3 +157,4 @@ function hideError(error) {
   error.textContent = "";
   error.style.display = "none";
 }
+
