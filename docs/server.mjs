@@ -110,7 +110,7 @@ app.post("/M00888146/uploads", async (request, response) => {
           { $set: { avatar: myFile.name } }
         );
         await memeCollection.updateMany(
-          { name: userDocument.userName } , 
+          { name: userDocument.userName },
           { $set: { avatar: myFile.name } }
         );
       } else {

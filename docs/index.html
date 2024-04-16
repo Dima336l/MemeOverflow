@@ -7,77 +7,77 @@
   <link rel="icon" type="image/x-icon" href="Images/favicon.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="frontend/public/styles.css">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
-    <a class="navbar-brand logoText" href="index.html">MemeOverflow</a> <img src="Images/smile.png" id="smile" alt="smile">
+    <a class="navbar-brand logoText" href="index.html">MemeOverflow</a> <img src="frontend/public/Images/smile.png" id="smile" alt="smile">
     <div class="navbar-collapse collapse flex-grow-1 justify-content-center" id="navbarText">
       <ul class="nav justify-content-center" id="ulElement">
         <li class="nav-item first-two">
-          <img src="Images/home.png" alt="home"> <a class="navbar-brand" href="#">Home</a>
+          <img src="frontend/public/Images/home.png" alt="home"> <a class="navbar-brand" href="#">Home</a>
         </li>
         <li class="nav-item first-two">
-          <img src="Images/fire.png" id="fire" alt="fire"> <a class="navbar-brand" href="#">Hot</a>
+          <img src="frontend/public/Images/fire.png" id="fire" alt="fire"> <a class="navbar-brand" href="#">Hot</a>
         </li>
         <li class="nav-item heart">
-          <img src="Images/heart.png" alt="heart"> <a class="navbar-brand" href="#">Trending</a>
+          <img src="frontend/public/Images/heart.png" alt="heart"> <a class="navbar-brand" href="#">Trending</a>
         </li>
         <li class="nav-item dice">
-          <img src="Images/Dice.png" alt="Dice"> <a class="navbar-brand" href="#">Random</a>
+          <img src="frontend/public/Images/Dice.png" alt="Dice"> <a class="navbar-brand" href="#">Random</a>
         </li>
       </ul>
     </div>
     <ul class="nav navbar-nav navbar-right">
-      <li class="nav-item"><img src="Images/anonymous.png" class="icon" id="anonymous" alt="anonymous"></li>
+      <li class="nav-item"><img src="frontend/public/Images/anonymous.png" class="icon" id="anonymous" alt="anonymous"></li>
       <li class="nav-item"><img id="avatar-icon" src="Uploads/avatar.png" class="icon" onclick="openLoginForm()" alt="avatar"></li>
-      <li class="nav-item"><img id="post-btn" src="Images/Post.png" class="icon" alt="Post"></li>
-      <li class="nav-item" id="feed"><img src="Images/feed.png" class="icon" onclick="getFeedFromFollowers()" alt="feed"></li>
-      <li class="nav-item"><img src="Images/moon.png" class="icon" id="toggle-btn" alt="moon"></li>
+      <li class="nav-item"><img id="post-btn" src="frontend/public/Images/Post.png" class="icon" alt="Post"></li>
+      <li class="nav-item" id="feed"><img src="frontend/public/Images/feed.png" class="icon" onclick="getFeedFromFollowers()" alt="feed"></li>
+      <li class="nav-item"><img src="frontend/public/Images/moon.png" class="icon" id="toggle-btn" alt="moon"></li>
     </ul>
   </nav><!-- Vertical Menu -->
   <div class="vertical-menu">
     <div class="box">
       <a href="#home" class="link-container">
-      <div class="img-container"><img src="Images/programming.png" class="menuIcons" id="programmingIcon" alt="programming"></div>Programming</a>
+      <div class="img-container"><img src="frontend/public/Images/programming.png" class="menuIcons" id="programmingIcon" alt="programming"></div>Programming</a>
     </div>
     <div class="box">
       <a href="#about">
-      <div class="img-container"><img src="Images/front-end.png" class="menuIcons" alt="front-end"></div>Front end</a>
+      <div class="img-container"><img src="frontend/public/Images/front-end.png" class="menuIcons" alt="front-end"></div>Front end</a>
     </div>
     <div class="box">
       <a href="#about">
-      <div class="img-container"><img src="Images/back-end.png" class="menuIcons" alt="back-end"></div>Back end</a>
+      <div class="img-container"><img src="frontend/public/Images/back-end.png" class="menuIcons" alt="back-end"></div>Back end</a>
     </div>
     <div class="box">
       <a href="#about">
-      <div class="img-container"><img src="Images/debugging.png" class="menuIcons" alt="debugging"></div>Debugging</a>
+      <div class="img-container"><img src="frontend/public/Images/debugging.png" class="menuIcons" alt="debugging"></div>Debugging</a>
     </div>
     <div class="box">
       <a href="#about">
-      <div class="img-container"><img src="Images/linux.png" class="menuIcons" id="linuxIcon" alt="linux"></div>Linux</a>
+      <div class="img-container"><img src="frontend/public/Images/linux.png" class="menuIcons" id="linuxIcon" alt="linux"></div>Linux</a>
     </div>
     <div class="box">
       <a href="#about">
-      <div class="img-container"><img src="Images/python.png" class="menuIcons" alt="python"></div>Python</a>
+      <div class="img-container"><img src="frontend/public/Images/python.png" class="menuIcons" alt="python"></div>Python</a>
     </div>
     <div class="box">
       <a href="#about">
-      <div class="img-container"><img src="Images/testing.png" class="menuIcons" alt="testing"></div>Testing</a>
+      <div class="img-container"><img src="frontend/public/Images/testing.png" class="menuIcons" alt="testing"></div>Testing</a>
     </div>
     <div class="box">
       <a href="#about">
-      <div class="img-container"><img src="Images/java.png" class="menuIcons javaIcon" alt="java"></div>Java</a>
+      <div class="img-container"><img src="frontend/public/Images/java.png" class="menuIcons javaIcon" alt="java"></div>Java</a>
     </div>
     <div class="box">
       <a href="#about">
-      <div class="img-container"><img src="Images/JavaScript.png" class="menuIcons" alt="JavaScript"></div>JavaScript</a>
+      <div class="img-container"><img src="frontend/public/Images/JavaScript.png" class="menuIcons" alt="JavaScript"></div>JavaScript</a>
     </div>
     <div class="box">
       <a href="#about">
-      <div class="img-container"><img src="Images/C++.png" class="menuIcons" alt="C++"></div>C++</a>
+      <div class="img-container"><img src="frontend/public/Images/C++.png" class="menuIcons" alt="C++"></div>C++</a>
     </div><!-- Search Bar -->
     <form class="example">
       <input type="text" placeholder="Search User" name="search" value="" id="searchInput"> <button type="submit" id="searchUser">
@@ -87,19 +87,19 @@
     </form><!-- Footer -->
     <div class="box homeIcon">
       <a href="#about">
-      <div class="img-container"><img src="Images/house.png" class="menuIcons" alt="house"></div>Home</a>
+      <div class="img-container"><img src="frontend/public/Images/house.png" class="menuIcons" alt="house"></div>Home</a>
     </div>
     <div class="box">
       <a href="#about">
-      <div class="img-container"><img src="Images/contact.png" class="menuIcons" alt="contact"></div>Contact</a>
+      <div class="img-container"><img src="frontend/public/Images/contact.png" class="menuIcons" alt="contact"></div>Contact</a>
     </div>
     <div class="box">
       <a href="#about">
-      <div class="img-container"><img src="Images/coffee.png" class="menuIcons" alt="coffee"></div>About</a>
+      <div class="img-container"><img src="frontend/public/Images/coffee.png" class="menuIcons" alt="coffee"></div>About</a>
     </div><!-- Login Modal Content -->
     <div id="id01" class="modal">
       <form class="modal-content" id="loginForm" action="/action_page.php" method="post" name="loginForm">
-        <div class="imgcontainer"><img src="./Images/avatar2.png" alt="Avatar" class="avatar"></div>
+        <div class="imgcontainer"><img src="./frontend/public/Images/avatar2.png" alt="Avatar" class="avatar"></div>
         <div class="container">
           <label><b>Email</b></label> <input type="text" id="emailLogin" placeholder="Enter Email" autocomplete="email" value="Nircadmitrii@icloud.com"> <label><b>Password</b></label> <input type="password" id="passwordLogin" placeholder="Enter Password" autocomplete="current-password" value="Dumitras123@">
           <div class="error"></div>
@@ -115,7 +115,7 @@
     <div id="id02" class="modal">
       <form action="/Register" class="modal-content modal-content2" id="registrationForm" method="post" name="registrationForm">
         <!-- Registration Modal Content -->
-        <div class="imgcontainer"><img src="./Images/avatar2.png" alt="Avatar" class="avatar"></div>
+        <div class="imgcontainer"><img src="./frontend/public/Images/avatar2.png" alt="Avatar" class="avatar"></div>
         <div class="container">
           <label><b>Email</b></label> <input type="text" id="emailRegistration" placeholder="Enter Email" name="email" value="Nircadmitrii@icloud.com"> <label><b>Username</b></label> <input type="text" placeholder="Enter Username" name="username" autocomplete="username" id="usernameRegistration" value="Dumitru"> <label><b>Password</b></label> <input type="password" placeholder="Enter Password" name="password" autocomplete="current-password" id="passwordRegistration" value="Dumitras123@"> <label ><b>Confirm Password</b></label> <input type="password" placeholder="Confirm password" autocomplete="new-password" name="confirmPassword" id="confirmRegistration" value="Dumitras123@">
           <div class="error"></div>
@@ -130,7 +130,7 @@
     </div><!-- Post Modal Content -->
     <div id="id03" class="modal">
       <form class="modal-content modal-content2" id="postForm" method="post" name="postForm">
-        <div class="imgcontainer"><img src="./Images/Post2.png" alt="Avatar" class="avatar"></div>
+        <div class="imgcontainer"><img src="./frontend/public/Images/Post2.png" alt="Avatar" class="avatar"></div>
         <div class="container">
           <input type="text" placeholder="Category" name="category" value="" id="categoryUpload"> <input type="text" placeholder="Title" name="title" value="" id="titleUpload">
           <div class="error"></div>
@@ -145,7 +145,7 @@
       <form class="modal-content modal-content2" id="profileForm" method="post" name="profileForm">
         <h1>Profile</h1>
         <div class="imgcontainer" id="profileContainer">
-          <img src="./Images/anonymous.png" alt="Avatar" class="avatar">
+          <img src="./frontend/public/Images/anonymous.png" alt="Avatar" class="avatar">
           <div id="uploadContainer">
             <input type="file" class="form-control-file" id="avatarUpload"> <button id="postBtnUpload" type="button" class="postbtn" onclick="uploadAvatar()">Post</button>
           </div>
@@ -163,14 +163,14 @@
   </div>
   <div id="profContainers"></div><!-- Meme content -->
   <div id="imageContainer"></div><!-- JavaScript scripts -->
-  <script src="javascript/validation.js"></script> 
-  <script src="javascript/content.js"></script> 
-  <script src="javascript/services/uploadMeme.js"></script> 
-  <script src="javascript/services/uploadAvatar.js"></script> 
-  <script src="javascript/services/register.js"></script> 
-  <script src="javascript/services/login.js"></script> 
-  <script src="javascript/services/display.js"></script> 
-  <script src="javascript/services/logout.js"></script> 
-  <script src="javascript/services/follow.js"></script>
+  <script src="frontend/public/javascript/validation.js"></script> 
+  <script src="frontend/public/javascript/content.js"></script> 
+  <script src="frontend/public/javascript/services/uploadMeme.js"></script> 
+  <script src="frontend/public/javascript/services/uploadAvatar.js"></script> 
+  <script src="frontend/public/javascript/services/register.js"></script> 
+  <script src="frontend/public/javascript/services/login.js"></script> 
+  <script src="frontend/public/javascript/services/display.js"></script> 
+  <script src="frontend/public/javascript/services/logout.js"></script> 
+  <script src="frontend/public/javascript/services/follow.js"></script>
 </body>
 </html>
