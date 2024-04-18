@@ -3,6 +3,7 @@ import bodyParser from "body-parser";
 import { db } from "./backend/config/mongoClient.mjs";
 import session from "express-session";
 import fileUpload from "express-fileupload";
+import { client } from "./backend/config/mongoClient.mjs";
 
 const usersCollection = db.collection("users");
 const memeCollection = db.collection("memes");
@@ -23,7 +24,7 @@ app.use(
 
 app.use(express.static("frontend/public"));
 
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 app.listen(port, async () => {
   console.log(`Server started on port ${port}`);
